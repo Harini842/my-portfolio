@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
+  "ignoreDeprecations": "5.0",
+  "skipLibCheck": true,
+  "typeRoots": ["./node_modules/@types"]
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
