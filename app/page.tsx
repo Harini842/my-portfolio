@@ -5,7 +5,7 @@ import { Points, PointMaterial, Float } from "@react-three/drei";
 // @ts-ignore
 import * as random from "maath/random/dist/maath-random.esm";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Cpu, Award, X, Eye, FileCheck, Home } from "lucide-react";
+import { Github, Linkedin, Mail, Cpu, Award, X, Eye, FileCheck, Home, User } from "lucide-react";
 
 // --- Star Background ---
 function StarField() {
@@ -152,6 +152,7 @@ export default function Portfolio() {
             {/* --- Corrected Navigation Tabs --- */}
             <div className="flex flex-wrap gap-4 justify-center mt-12">
               {[
+                { name: "About Me", id: "about" },
                 { name: "Internships", id: "internships" },
                 { name: "Workshops", id: "workshops" },
                 { name: "Projects", id: "projects" },
@@ -174,7 +175,52 @@ export default function Portfolio() {
             </div>
           </motion.div>
         </section>
-         
+        {/* --- About Me Section --- */}
+<section id="about" className="py-24 px-6 max-w-4xl mx-auto">
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="relative p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl overflow-hidden shadow-2xl"
+  >
+    {/* Decorative background glow */}
+    <div className="absolute -top-24 -left-24 w-48 h-48 bg-indigo-500/10 blur-[100px]" />
+    
+    <div className="relative flex flex-col items-center text-center">
+      {/* PROFILE PHOTO */}
+      <div className="relative mb-8">
+        <div className="absolute inset-0 bg-indigo-500 blur-2xl opacity-20 rounded-full animate-pulse" />
+        <img 
+          src="/harini-photo.png" 
+          alt="Harini Krishnamoorthy" 
+          className="relative w-44 h-44 rounded-full object-cover border-2 border-indigo-500/30 p-1 shadow-2xl"
+        />
+      </div>
+
+      {/* CONTENT */}
+      <h2 className="text-4xl font-black tracking-tighter mb-2 bg-gradient-to-r from-white to-zinc-500 bg-clip-text text-transparent">
+        ABOUT ME
+      </h2>
+      <div className="w-12 h-1 bg-indigo-500 rounded-full mb-8" />
+      
+      <div className="space-y-6 text-zinc-400 font-medium leading-relaxed text-lg">
+        <p>
+          I am a passionate and dedicated <span className="text-white">Computer Science student at SMVEC</span> with a strong foundation in Java Full Stack development, AWS Data Engineering, and AI/ML. My focus is on leveraging technology to solve complex, real-world problems.
+        </p>
+        <p>
+          As an <span className="text-indigo-400">FFE Scholar</span> and an attendee of <span className="text-indigo-400">GHCI’25</span>, I am driven by innovation, teamwork, and continuous learning. I am actively seeking an internship opportunity where I can apply my theoretical knowledge and grow my technical skills within a professional environment.
+        </p>
+      </div>
+
+      <a 
+        href="mailto:harinik842@gmail.com"
+        className="mt-10 px-10 py-4 bg-indigo-500 rounded-full font-bold text-white hover:bg-indigo-600 transition-all shadow-[0_0_30px_rgba(79,70,229,0.3)] active:scale-95"
+      >
+        Let's Connect
+      </a>
+    </div>
+  </motion.div>
+</section>
 
         {/* --- Virtual Internships Section --- */}
         <section id="internships"className="py-24 px-6 max-w-7xl mx-auto">
