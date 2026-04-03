@@ -213,11 +213,13 @@ export default function Portfolio() {
       </div>
 
       <a 
-        href="mailto:harinik842@gmail.com"
-        className="mt-10 px-10 py-4 bg-indigo-500 rounded-full font-bold text-white hover:bg-indigo-600 transition-all shadow-[0_0_30px_rgba(79,70,229,0.3)] active:scale-95"
-      >
-        Let's Connect
-      </a>
+  href="https://www.linkedin.com/in/harini-krishnamoorthy-2a4088356/" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="mt-10 px-10 py-4 bg-indigo-500 rounded-full font-bold text-white hover:bg-indigo-600 transition-all shadow-[0_0_30px_rgba(79,70,229,0.3)] active:scale-95 flex items-center gap-2"
+>
+  <Linkedin size={18} /> Let's Connect
+</a>
     </div>
   </motion.div>
 </section>
@@ -279,11 +281,69 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* --- Placeholder for Projects Section --- */}
-        <section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
-           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3"><Cpu className="text-indigo-500" /> Projects</h2>
-           <p className="text-zinc-500 font-mono text-sm uppercase">Coming Soon...</p>
-        </section>
+        {/* --- Projects Section --- */}
+<section id="projects" className="py-24 px-6 max-w-7xl mx-auto">
+  <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+    <Cpu className="text-indigo-500" /> Projects
+  </h2>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* PROJECT 1: 3D PORTFOLIO */}
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="group relative rounded-[2rem] bg-white/[0.03] border border-white/5 overflow-hidden backdrop-blur-xl"
+    >
+      {/* Project Image */}
+      <div className="relative h-48 overflow-hidden">
+        <img 
+          src="/portfolio-preview.png" 
+          alt="3D Portfolio Preview" 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020010] to-transparent opacity-60" />
+      </div>
+
+      {/* Project Content */}
+      <div className="p-8">
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-xl font-bold text-white">3D Interactive Portfolio</h3>
+          <div className="flex gap-2">
+            <span className="px-2 py-1 rounded bg-indigo-500/10 text-indigo-400 text-[8px] font-mono">NEXT.JS</span>
+            <span className="px-2 py-1 rounded bg-purple-500/10 text-purple-400 text-[8px] font-mono">THREE.JS</span>
+          </div>
+        </div>
+        
+        <p className="text-zinc-400 text-sm mb-6 leading-relaxed">
+          A high-performance personal portfolio featuring a custom 3D starfield, wireframe geometry, and smooth Framer Motion animations. Built with a mobile-first approach and deployed on Vercel.
+        </p>
+
+        <div className="flex gap-4">
+          <a 
+            href="https://github.com/Harini842/my-portfolio" 
+            target="_blank" 
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs font-bold hover:bg-white/10 transition-all"
+          >
+            <Github size={14} /> Code
+          </a>
+          <a 
+            href="/" 
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-indigo-500 text-white text-xs font-bold hover:bg-indigo-600 transition-all"
+          >
+            <Eye size={14} /> Live Demo
+          </a>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Placeholder for Next Project */}
+    <div className="p-8 rounded-[2rem] border border-dashed border-white/10 flex flex-col items-center justify-center text-center opacity-40">
+       <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-4">
+         <span className="text-xl">+</span>
+       </div>
+       <p className="text-xs font-mono uppercase tracking-widest">Next Project Loading...</p>
+    </div>
+  </div>
+</section>
 
         {/* --- Certifications Section --- */}
         <section id="certifications"className="py-24 px-6 max-w-7xl mx-auto">
