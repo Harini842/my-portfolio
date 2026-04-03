@@ -167,11 +167,16 @@ export default function Portfolio() {
                 </button>
               ))}
               <button 
-                onClick={() => document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" })}
-                className="px-8 py-2 bg-indigo-500/20 border border-indigo-500/40 rounded-full hover:bg-indigo-500 transition-all duration-300 text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(79,70,229,0.2)]"
-              >
-                Get In Touch
-              </button>
+  onClick={() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="px-8 py-2 bg-indigo-500/20 border border-indigo-500/40 rounded-full hover:bg-indigo-500 transition-all duration-300 text-white text-xs font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(79,70,229,0.2)] active:scale-95 cursor-pointer"
+>
+  Get In Touch
+</button>
             </div>
           </motion.div>
         </section>
@@ -473,6 +478,80 @@ export default function Portfolio() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* --- Contact Form Section --- */}
+<section id="contact" className="py-24 px-6 max-w-3xl mx-auto">
+  <motion.div 
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl shadow-2xl relative overflow-hidden"
+  >
+    {/* Decorative background glow */}
+    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 blur-[120px] -z-10" />
+
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold text-white mb-2 uppercase tracking-tighter">Send a Message</h2>
+      <p className="text-zinc-500 text-xs font-mono tracking-widest uppercase">I'll get back to you shortly</p>
+    </div>
+
+    {/* Form Start */}
+    <form 
+      action="https://api.web3forms.com/submit" 
+      method="POST"
+      className="space-y-6"
+    >
+      {/* YOUR UNIQUE ACCESS KEY */}
+      <input type="hidden" name="access_key" value="369e54f3-d7a7-44fd-becf-9a6a81ae67a1" />
+      
+      {/* Optional: Redirect to a success page */}
+      <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-[10px] font-mono text-zinc-500 uppercase mb-2 tracking-widest ml-4">Name</label>
+          <input 
+            type="text" 
+            name="name" 
+            required
+            placeholder="Your Name"
+            className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-zinc-700 focus:outline-none focus:border-indigo-500/50 transition-all"
+          />
+        </div>
+        <div>
+          <label className="block text-[10px] font-mono text-zinc-500 uppercase mb-2 tracking-widest ml-4">Email</label>
+          <input 
+            type="email" 
+            name="email" 
+            required
+            placeholder="email@example.com"
+            className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-zinc-700 focus:outline-none focus:border-indigo-500/50 transition-all"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-[10px] font-mono text-zinc-500 uppercase mb-2 tracking-widest ml-4">Message</label>
+        <textarea 
+          name="message" 
+          rows={4} 
+          required
+          placeholder="Hi Harini, I'd love to discuss..."
+          className="w-full px-6 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-zinc-700 focus:outline-none focus:border-indigo-500/50 transition-all resize-none"
+        />
+      </div>
+
+      <motion.button 
+        type="submit"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="w-full py-4 bg-indigo-500 rounded-2xl font-bold text-white shadow-[0_0_30px_rgba(79,70,229,0.3)] hover:bg-indigo-600 transition-all flex items-center justify-center gap-2"
+      >
+        Send Message
+      </motion.button>
+    </form>
+  </motion.div>
+</section>
 
         <footer id="footer"className="py-16 text-center border-t border-white/5 bg-black/20 backdrop-blur-md">
           <div className="flex justify-center gap-10 mb-8 opacity-60">
